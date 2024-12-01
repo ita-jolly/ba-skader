@@ -16,7 +16,7 @@ db_service.init()
 
 @app.route('/')
 def index():
-  return "Welcome to API"
+  return jsonify({'endpoints': [{'/skader': {'GET': 'Hent alle skader', 'POST': 'Opret en ny skade'}}]})
 
 @app.route('/skader', methods=['GET'])
 @swag_from('swagger/get_skader.yml')
