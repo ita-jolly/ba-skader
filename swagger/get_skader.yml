@@ -1,0 +1,39 @@
+tags:
+  - skader
+summary: Hent alle skader
+description: Henter alle skader fra databasen
+responses:
+  200:
+    description: En liste over skader
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          skade_id:
+            type: integer
+            example: 1
+          skade_type:
+            type: string
+            example: "Bilulykke"
+          skade_pris:
+            type: number
+            example: 5000
+          nummerplade:
+            type: string
+            example: "AB12345"
+          syn_type:
+            type: string
+            example: "Fuld"
+          indberetnings_dato:
+            type: string
+            format: date
+            example: "2023-10-01"
+  404:
+    description: Ingen skader fundet
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Ingen skader fundet
