@@ -1,0 +1,61 @@
+tags:
+  - skader
+summary: Opret en ny skade
+description: Opretter en ny skade i databasen
+parameters:
+  - in: body
+    name: body
+    description: Skade objekt
+    required: true
+    schema:
+      type: object
+      properties:
+        skade_type:
+          type: string
+          example: "Bilulykke"
+        skade_pris:
+          type: number
+          example: 5000
+        nummerplade:
+          type: string
+          example: "AB12345"
+        syn_type:
+          type: string
+          example: "Efter Aftale"
+        indberetnings_dato:
+          type: string
+          format: date
+          example: "2023-10-01"
+responses:
+  201:
+    description: Skade oprettet
+    schema:
+      type: object
+      properties:
+        skade_id:
+          type: integer
+          example: 1
+        skade_type:
+          type: string
+          example: "Bilulykke"
+        skade_pris:
+          type: number
+          example: 5000
+        nummerplade:
+          type: string
+          example: "AB12345"
+        syn_type:
+          type: string
+          example: "Efter Aftale"
+        indberetnings_dato:
+          type: string
+          format: date
+          example: "2023-10-01"
+  400:
+    description: Ugyldig input
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Ugyldig input
