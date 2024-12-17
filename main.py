@@ -16,7 +16,27 @@ db_service.init()
 
 @app.route('/')
 def index():
-  return jsonify({'endpoints': [{'/skader': {'GET': 'Hent alle skader', 'POST': 'Opret en ny skade'}}]})
+    endpoints = [
+        {
+            "path": "/apidocs",
+            "method": "GET",
+            "description": "Endpoint documentation"
+        },
+        {
+            "path": "/skader",
+            "method": "GET",
+            "description": "Get skader"
+        },
+        {
+            "path": "/skader",
+            "method": "POST",
+            "description": "Create skade"
+        }
+    ]
+    return jsonify({
+        "Service": "ba-skader Microservice",
+        "Available endpoints": endpoints
+    })
 
 @app.route('/skader', methods=['GET'])
 @swag_from('swagger/get_skader.yml')
